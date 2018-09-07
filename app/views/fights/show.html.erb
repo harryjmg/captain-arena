@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First fighter:</strong>
+  <%= @fight.first_fighter_id %>
+</p>
+
+<p>
+  <strong>Second fighter:</strong>
+  <%= @fight.second_fighter_id %>
+</p>
+
+<p>
+  <strong>Winner:</strong>
+  <%= @fight.winner_id %>
+</p>
+
+<p>
+  <strong>Loser:</strong>
+  <%= @fight.loser_id %>
+</p>
+
+<p>
+  <strong>Fight history:</strong>
+  <%= @fight.fight_history %>
+</p>
+
+<%= link_to 'Edit', edit_fight_path(@fight) %> |
+<%= link_to 'Back', fights_path %>

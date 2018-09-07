@@ -1,6 +1,6 @@
-<h1>Characters</h1>
+<h1>Fighters list</h1>
 
-<table>
+<table class="ui very basic table">
   <thead>
     <tr>
       <th>Name</th>
@@ -12,6 +12,7 @@
 
   <tbody>
     <% @characters.each do |character| %>
+
       <tr>
         <td><%= character.name %></td>
         <td><%= character.hp %></td>
