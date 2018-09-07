@@ -24,13 +24,17 @@ ActiveRecord::Schema.define(version: 2018_09_07_081228) do
   end
 
   create_table "fights", force: :cascade do |t|
-    t.integer "first_fighter_id"
-    t.integer "second_fighter_id"
-    t.integer "winner_id"
-    t.integer "loser_id"
+    t.bigint "first_fighter_id"
+    t.bigint "second_fighter_id"
+    t.bigint "winner_id"
+    t.bigint "loser_id"
     t.string "fight_history", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["first_fighter_id"], name: "index_fights_on_first_fighter_id"
+    t.index ["loser_id"], name: "index_fights_on_loser_id"
+    t.index ["second_fighter_id"], name: "index_fights_on_second_fighter_id"
+    t.index ["winner_id"], name: "index_fights_on_winner_id"
   end
 
 end

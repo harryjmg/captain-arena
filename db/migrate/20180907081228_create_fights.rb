@@ -1,10 +1,10 @@
 class CreateFights < ActiveRecord::Migration[5.2]
   def change
     create_table :fights do |t|
-      t.integer :first_fighter_id
-      t.integer :second_fighter_id
-      t.integer :winner_id
-      t.integer :loser_id
+      t.references :first_fighter
+      t.references :second_fighter
+      t.references :winner
+      t.references :loser
       t.string :fight_history, array: true
       t.timestamps
     end
