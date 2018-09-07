@@ -25,7 +25,8 @@ class FightsController < ApplicationController
   # POST /fights.json
   def create
     @fight = Fight.new(fight_params)
-
+    @fight.first_fighter = Character.find(@fight.first_fighter_id)
+    @fight.second_fighter = Character.find(@fight.second_fighter_id)
     respond_to do |format|
       if @fight.save
         format.html { redirect_to @fight, notice: 'Fight was successfully created.' }
@@ -69,6 +70,6 @@ class FightsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fight_params
-      params.require(:fight).permit(:first_fighter, :second_fighter, :winner, :loser, :fight_history)
+      params.require(:fight).permit(:first_fighter_id, :second_fighter_id, :winner, :loser, :fight_history)
     end
 end

@@ -1,8 +1,7 @@
-<%= form_with(model: fight, local: true) do |form| %>
+<%= form_with(model: fight, local: true, class: 'ui form') do |form| %>
   <% if fight.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(fight.errors.count, "error") %> prohibited this fight from being saved:</h2>
-
       <ul>
       <% fight.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -13,30 +12,15 @@
 
   <div class="field">
     <%= form.label :first_fighter %>
-    <%= form.text_field :first_fighter %>
+    <%= form.select(:first_fighter_id, Character.all.collect {|a| [a.name, a.id]}, {}, class: "ui dropdown") -%>
   </div>
 
   <div class="field">
     <%= form.label :second_fighter %>
-    <%= form.text_field :second_fighter %>
-  </div>
-
-  <div class="field">
-    <%= form.label :winner %>
-    <%= form.text_field :winner %>
-  </div>
-
-  <div class="field">
-    <%= form.label :loser %>
-    <%= form.text_field :loser %>
-  </div>
-
-  <div class="field">
-    <%= form.label :fight_history %>
-    <%= form.text_field :fight_history %>
+    <%= form.select(:second_fighter_id, Character.all.collect {|a| [a.name, a.id]}, {}, class: "ui dropdown") -%>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :Submit, class: "ui button" %>
   </div>
 <% end %>
