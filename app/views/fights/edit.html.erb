@@ -2,5 +2,8 @@
 
 <%= render 'form', fight: @fight %>
 
-<%= link_to 'Show', @fight %> |
-<%= link_to 'Back', fights_path %>
+<div class="ui divider"></div>
+<div class="ui buttons">
+  <%= link_to 'Show', @fight, class: 'ui button' %>
+  <%= link_to 'Back', fights_path, class: 'ui button' %>
+</div>

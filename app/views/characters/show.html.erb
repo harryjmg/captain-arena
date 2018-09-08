@@ -13,5 +13,7 @@
   <%= @character.attack_points %>
 </p>
 
-<%= link_to 'Edit', edit_character_path(@character) %> |
-<%= link_to 'Back', characters_path %>
+<div class='ui buttons'>
+<%= link_to 'Edit', edit_character_path(@character), class: 'ui button' %>
+<%= link_to 'Back', characters_path, class: 'ui button' %>
+</div>

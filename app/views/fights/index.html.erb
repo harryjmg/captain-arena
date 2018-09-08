@@ -1,4 +1,4 @@
-<h1>Fights</h1>
+<h1>Fights list</h1>
 
 <table class="ui very basic table">
   <thead>
@@ -7,7 +7,7 @@
       <th>Second fighter</th>
       <th>Winner</th>
       <th>Loser</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -19,7 +19,6 @@
         <td><%= fight.winner.name %></td>
         <td><%= fight.loser.name %></td>
         <td><%= link_to 'Show', fight %></td>
-        <td><%= link_to 'Edit', edit_fight_path(fight) %></td>
         <td><%= link_to 'Destroy', fight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -28,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Fight', new_fight_path %>
+<%= link_to 'New Fight', new_fight_path, class: 'ui primary button' %>
