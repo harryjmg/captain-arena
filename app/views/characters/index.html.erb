@@ -3,6 +3,7 @@
 <table class="ui very basic table">
   <thead>
     <tr>
+      <th>Selfie</th>
       <th>Name</th>
       <th>Hp</th>
       <th>Attack points</th>
@@ -14,6 +15,7 @@
     <% @characters.each do |character| %>
 
       <tr>
+        <td><%= image_tag(character.selfie_url, size: "30x30") %></td>
         <td><%= character.name %></td>
         <td><%= character.hp %></td>
         <td><%= character.attack_points %></td>
