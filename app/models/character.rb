@@ -1,4 +1,6 @@
 class Character < ApplicationRecord
+  has_many :fights
+
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :hp, presence: true, numericality: { only_integer: true,
                                                   greater_than: 79,
