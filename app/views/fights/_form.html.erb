@@ -10,17 +10,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_fighter %>
-    <%= form.select(:first_fighter_id, Character.all.collect {|a| [a.name, a.id]}, {}, class: "ui dropdown") -%>
+  <div class="two fields">
+    <div class="field">
+      <%= form.label :first_fighter %>
+      <%= form.select(:first_fighter_id, Character.all.collect {|a| [a.name, a.id]}, {}, class: "ui dropdown") -%>
+    </div>
+
+    <div class="field">
+      <%= form.label :first_fighter_weapon %>
+      <%= form.select(:p1_weapon, options_for_select(available_weapons.map { |obj| [obj['name']] }), {}, class: "ui dropdown") %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :second_fighter %>
-    <%= form.select(:second_fighter_id, Character.all.collect {|a| [a.name, a.id]}, {}, class: "ui dropdown") -%>
+  <div class="two fields">
+    <div class="field">
+      <%= form.label :second_fighter %>
+      <%= form.select(:second_fighter_id, Character.all.collect {|a| [a.name, a.id]}, {}, class: "ui dropdown") -%>
+    </div>
+
+    <div class="field">
+      <%= form.label :second_fighter_weapon %>
+      <%= form.select(:p2_weapon, options_for_select(available_weapons.map { |obj| [obj['name']] }), {}, class: "ui dropdown") %>
+    </div>
   </div>
 
   <div class="actions">
     <%= form.submit :Submit, class: "ui button" %>
   </div>
 <% end %>
+
+<script>
+  // Semantic ui dropdown js
+  $('.ui.dropdown')
+  .dropdown()
+  ;
+</script>

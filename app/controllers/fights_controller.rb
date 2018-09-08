@@ -70,6 +70,6 @@ class FightsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fight_params
-      params.require(:fight).permit(:first_fighter_id, :second_fighter_id, :winner, :loser, :fight_history)
+      params.require(:fight).permit(:first_fighter_id, :second_fighter_id, :p1_weapon, :p2_weapon, :winner, :loser, :fight_history)
     end
 end
