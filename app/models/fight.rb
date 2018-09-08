@@ -4,15 +4,14 @@ class Fight < ApplicationRecord
 
   belongs_to :first_fighter, :class_name => "Character"
   belongs_to :second_fighter, :class_name => "Character"
-  belongs_to :winner, :class_name => "Character"
-  belongs_to :loser, :class_name => "Character"
+  belongs_to :winner, :class_name => "Character", optional: true
+  belongs_to :loser, :class_name => "Character", optional: true
 
   validate :fighters_are_differents
 
-  before_validation :make_the_fight
+  after_validation :make_the_fight
 
   def make_the_fight
-    puts "SELF NIGGA"
     p1 = {:id => first_fighter.id, :hp => first_fighter.hp, :attack => first_fighter.attack_points}
     p2 = {:id => second_fighter.id, :hp => second_fighter.hp, :attack => second_fighter.attack_points}
     history = []
