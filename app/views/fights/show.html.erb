@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>First fighter:</strong>
   <%= @fight.first_fighter.name %>
@@ -22,7 +20,9 @@
 
 <p>
   <strong>Fight history:</strong>
-  <%= @fight.fight_history %>
+  <% digest_fight_history(@fight).each do |str| %>
+    <p><%= str %></p>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_fight_path(@fight) %> |

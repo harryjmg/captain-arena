@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Fights</h1>
 
 <table class="ui very basic table">
@@ -9,7 +7,6 @@
       <th>Second fighter</th>
       <th>Winner</th>
       <th>Loser</th>
-      <th>Fight history</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,11 +14,10 @@
   <tbody>
     <% @fights.each do |fight| %>
       <tr>
-        <td><%= fight.first_fighter %></td>
-        <td><%= fight.second_fighter %></td>
-        <td><%= fight.winner %></td>
-        <td><%= fight.loser %></td>
-        <td><%= fight.fight_history %></td>
+        <td><%= fight.first_fighter.name %></td>
+        <td><%= fight.second_fighter.name %></td>
+        <td><%= fight.winner.name %></td>
+        <td><%= fight.loser.name %></td>
         <td><%= link_to 'Show', fight %></td>
         <td><%= link_to 'Edit', edit_fight_path(fight) %></td>
         <td><%= link_to 'Destroy', fight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
