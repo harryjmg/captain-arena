@@ -24,13 +24,13 @@
       <table class="ui definition table">
         <tbody>
           <tr>
-            <td><%= @fight.first_fighter.name %></td>
+            <td><%= @fight.first_fighter.name %> (lv <%= @fight.first_fighter.level %>)</td>
             <td>with <%= @fight.p1_weapon %></td>
             <td><%= @fight_history[:p1_hp].positive? ? "#{@fight_history[:p1_hp]} HP remaining" : 'Dead' %></td>
             <td><%= @fight_history[:p1_dodged] %> hits dodged</td>
           </tr>
           <tr>
-            <td><%= @fight.second_fighter.name %></td>
+            <td><%= @fight.second_fighter.name %> (lv <%= @fight.second_fighter.level %>)</td>
             <td>with <%= @fight.p2_weapon %></td>
             <td><%= @fight_history[:p2_hp].positive? ? "#{@fight_history[:p2_hp]} HP remaining" : 'Dead' %></td>
             <td><%= @fight_history[:p2_dodged] %> hits dodged</td>
