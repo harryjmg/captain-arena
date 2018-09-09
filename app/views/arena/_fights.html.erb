@@ -19,7 +19,7 @@
           <td><b><%= fight.first_fighter.name %></b> & <b><%= fight.second_fighter.name %></b></td>
           <td><%= image_tag(fight.winner.selfie_url, size: "30x30") %></td>
           <td><%= fight.winner.name %></td>
-          <td><%= time_ago_in_words(fight.created_at) %></td>
+          <td><%= time_ago_in_words(fight.created_at) %> ago</td>
           <td><%= link_to 'Review', fight %></td>
           <td><%= link_to 'Delete', fight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>

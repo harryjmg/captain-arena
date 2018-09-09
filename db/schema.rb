@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_09_120755) do
+ActiveRecord::Schema.define(version: 2018_09_09_142516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2018_09_09_120755) do
     t.datetime "updated_at", null: false
     t.string "p1_weapon"
     t.string "p2_weapon"
+    t.string "p1_shield"
+    t.string "p2_shield"
     t.index ["first_fighter_id"], name: "index_fights_on_first_fighter_id"
     t.index ["loser_id"], name: "index_fights_on_loser_id"
     t.index ["second_fighter_id"], name: "index_fights_on_second_fighter_id"

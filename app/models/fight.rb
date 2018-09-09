@@ -15,8 +15,8 @@ class Fight < ApplicationRecord
   after_create :handle_xp
 
   def make_the_fight
-    p1 = {:id => first_fighter.id, :hp => first_fighter.hp, :level => first_fighter.level, :attack => first_fighter.attack_points, :agility => first_fighter.agility, :dodged => 0, :weapon => retrieve_weapon_hash(p1_weapon)}
-    p2 = {:id => second_fighter.id, :hp => second_fighter.hp, :level => second_fighter.level, :attack => second_fighter.attack_points, :agility => second_fighter.agility, :dodged => 0, :weapon => retrieve_weapon_hash(p2_weapon)}
+    p1 = {:id => first_fighter.id, :hp => first_fighter.hp, :level => first_fighter.level, :attack => first_fighter.attack_points, :agility => first_fighter.agility, :dodged => 0, :weapon => retrieve_weapon_hash(p1_weapon), :shield => retrieve_shield_hash(p1_shield) }
+    p2 = {:id => second_fighter.id, :hp => second_fighter.hp, :level => second_fighter.level, :attack => second_fighter.attack_points, :agility => second_fighter.agility, :dodged => 0, :weapon => retrieve_weapon_hash(p2_weapon), :shield => retrieve_shield_hash(p2_shield) }
     i = rand(2) # Random starting player to give the weakest a chance
     while (p1[:hp].positive? && p2[:hp].positive?) do
       if (i % 2 == 0) # if p1 is playing
@@ -38,7 +38,12 @@ class Fight < ApplicationRecord
   def damage_calculator(defenser, attacker)
     # They have a dodging chance based on their agility
     # (100 agility = 50% chance of taking 0 dmg)
-    defenser[:agility] > rand(200) ? 0 : (attacker[:attack] * attacker[:weapon]['multiplier'] + attacker[:level])
+    dmg = defenser[:agility] > rand(200) ? 0 : (attacker[:attack] * attacker[:weapon]['multiplier'] + attacker[:level])
+    puts "___"
+    puts dmg
+    dmg *= (defenser[:shield]['strength'] / 100.0)
+    puts dmg
+    return dmg
   end
 
   def handle_xp
