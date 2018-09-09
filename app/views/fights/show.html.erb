@@ -1,28 +1,42 @@
-<p>
-  <strong>First fighter:</strong>
-  <%= @fight.first_fighter.name %>
-</p>
+<div class="ui grid">
+  <div class="eight wide column">
+    <h2>Fight summary</h2>
+    <p>
+      <table class="ui very basic table">
+        <thead>
+          <tr>
+            <th class="one wide"></th>
+            <th></th>
+            <th colspan="10"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= image_tag(@fight.winner.selfie_url, size: "30x30") %></td>
+            <td><b><%= @fight.winner.name %> won !</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
 
-<p>
-  <strong>Second fighter:</strong>
-  <%= @fight.second_fighter.name %>
-</p>
+    <p>
+      <strong>The fight lasted <%= @fight_history[:round] %> rounds</strong>
+      <table class="ui definition table">
+        <tbody>
+          <tr>
+            <td><%= @fight.first_fighter.name %></td>
+            <td><%= @fight_history[:p1_hp].positive? ? "#{@fight_history[:p1_hp]} HP remaining" : 'Dead' %></td>
+            <td><%= @fight_history[:p1_dodged] %> hits dodged</td>
+          </tr>
+          <tr>
+            <td><%= @fight.second_fighter.name %></td>
+            <td><%= @fight_history[:p2_hp].positive? ? "#{@fight_history[:p2_hp]} HP remaining" : 'Dead' %></td>
+            <td><%= @fight_history[:p2_dodged] %> hits dodged</td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
 
-<p>
-  <strong>Winner:</strong>
-  <%= @fight.winner.name %>
-</p>
-
-<p>
-  <strong>Loser:</strong>
-  <%= @fight.loser.name %>
-</p>
-
-<p>
-  <strong>Fight history:</strong>
-  <% digest_fight_history(@fight).each do |str| %>
-    <p><%= str %></p>
-  <% end %>
-</p>
-
-<%= link_to 'Back', arena_path, class: 'ui button' %>
+    <%= link_to 'Back', arena_path, class: 'ui button' %>
+  </div>
+</div>

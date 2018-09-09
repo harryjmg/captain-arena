@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2018_09_09_102325) do
     t.bigint "second_fighter_id"
     t.bigint "winner_id"
     t.bigint "loser_id"
-    t.string "fight_history", array: true
+    t.string "history"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "p1_weapon"

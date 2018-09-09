@@ -10,6 +10,7 @@ class FightsController < ApplicationController
   # GET /fights/1
   # GET /fights/1.json
   def show
+    @fight_history = eval(@fight.history)
   end
 
   # GET /fights/new

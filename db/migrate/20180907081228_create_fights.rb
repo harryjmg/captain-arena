@@ -5,7 +5,7 @@ class CreateFights < ActiveRecord::Migration[5.2]
       t.references :second_fighter
       t.references :winner
       t.references :loser
-      t.string :fight_history, array: true
+      t.string :history
       t.timestamps
     end
   end
