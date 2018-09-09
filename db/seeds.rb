@@ -12,3 +12,6 @@ Character.create(name: 'Iron Man', hp: 110, attack_points: 15, agility: 50, self
 Character.create(name: 'Hulk', hp: 120, attack_points: 15, agility: 0, selfie_url: "https://cdn.icon-icons.com/icons2/1412/PNG/128/comics-hulk-fist_97451.png")
 
 Fight.create(first_fighter: Character.first, second_fighter: Character.second, p1_weapon: 'Excalibur', p2_weapon: 'Excalibur')
+Fight.create(first_fighter: Character.first, second_fighter: Character.second, p1_weapon: 'Excalibur', p2_weapon: 'Excalibur')
+Fight.create(first_fighter: Character.first, second_fighter: Character.second, p1_weapon: 'Excalibur', p2_weapon: 'Excalibur')
+Fight.create(first_fighter: Character.first, second_fighter: Character.second, p1_weapon: 'Excalibur', p2_weapon: 'Excalibur')

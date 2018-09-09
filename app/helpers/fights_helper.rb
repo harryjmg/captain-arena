@@ -14,4 +14,14 @@ module FightsHelper
       {'name' => 'Spoon', 'multiplier' => 0.8}
     ]
   end
+
+  def win_rate(character)
+    puts character.name
+    total = @fights.where(winner: character).count + @fights.where(loser: character).count
+    if total == 0
+      return 0
+    end
+    return (@fights.where(winner: character).count.to_f / total * 100).to_i
+  end
+
 end
