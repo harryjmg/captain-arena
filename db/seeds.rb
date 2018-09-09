@@ -14,4 +14,4 @@ Character.create(name: 'Hulk', hp: 120, attack_points: 15, agility: 0, selfie_ur
 Fight.create(first_fighter: Character.first, second_fighter: Character.second, p1_weapon: 'Excalibur', p2_weapon: 'Excalibur', p1_shield: 'Iron shield', p2_shield: 'Iron shield')
 Fight.create(first_fighter: Character.first, second_fighter: Character.second, p1_weapon: 'Excalibur', p2_weapon: 'Excalibur', p1_shield: 'Iron shield', p2_shield: 'Iron shield')
 Fight.create(first_fighter: Character.first, second_fighter: Character.second, p1_weapon: 'Excalibur', p2_weapon: 'Excalibur', p1_shield: 'Iron shield', p2_shield: 'Iron shield')
-Fight.create(first_fighter: Character.first, second_fighter: Character.second, p1_weapon: 'Excalibur', p2_weapon: 'Excalibur', p1_shield: 'Iron shield', p2_shield: 'Iron shield')
+Fight.create(first_fighter: Character.find_by(name: "Hulk"), second_fighter: Character.first, p1_weapon: 'Excalibur', p2_weapon: 'Spoon', p1_shield: 'Iron shield', p2_shield: 'Magic shield')
