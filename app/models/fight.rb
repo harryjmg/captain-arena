@@ -14,23 +14,29 @@ class Fight < ApplicationRecord
   after_validation :make_the_fight
 
   def make_the_fight
-    p1 = {:id => first_fighter.id, :hp => first_fighter.hp, :attack => first_fighter.attack_points, :weapon => retrieve_weapon_hash(p1_weapon)}
-    p2 = {:id => second_fighter.id, :hp => second_fighter.hp, :attack => second_fighter.attack_points, :weapon => retrieve_weapon_hash(p2_weapon)}
+    p1 = {:id => first_fighter.id, :hp => first_fighter.hp, :attack => first_fighter.attack_points, :agility => first_fighter.agility ,:weapon => retrieve_weapon_hash(p1_weapon)}
+    p2 = {:id => second_fighter.id, :hp => second_fighter.hp, :attack => second_fighter.attack_points, :agility => second_fighter.agility, :weapon => retrieve_weapon_hash(p2_weapon)}
     history = []
     i = rand(2) # Random starting player to give the weakest a chance
     while (p1[:hp].positive? && p2[:hp].positive?) do
       if (i % 2 == 0) # if p1 is playing
-        p2[:hp] -= p1[:attack] * p1[:weapon]['multiplier']
+        p2[:hp] -= damage_calculator(p2[:agility], p1[:attack] * p1[:weapon]['multiplier'])
         history.push({:player_playing => p1[:id], :p1_hp => p1[:hp], :p2_hp => p2[:hp]})
       else
-        p1[:hp] -= p2[:attack] * p2[:weapon]['multiplier']
+        p1[:hp] -= damage_calculator(p1[:agility],p2[:attack] * p2[:weapon]['multiplier'])
         history.push({:player_playing => p2[:id], :p1_hp => p1[:hp], :p2_hp => p2[:hp]})
       end
       i += 1
     end
-    self.winner_id = p1[:hp].positive? ? first_fighter_id : second_fighter_id
-    self.loser_id = p1[:hp].positive? ? second_fighter_id : first_fighter_id
+    self.winner = Character.find(p1[:hp].positive? ? p1[:id] : p2[:id])
+    self.loser = Character.find(p1[:hp].positive? ? p2[:id] : p1[:id])
     self.fight_history = history
+  end
+
+  def damage_calculator(agility, damage)
+    # They have a dodging chance based on their agility
+    # (100 agility = 50% chance of taking 0 dmg)
+    agility > rand(200) ? 0 : damage
   end
 
   def fighters_are_differents

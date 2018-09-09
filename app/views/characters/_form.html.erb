@@ -13,22 +13,32 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: "Example : Harry" %>
   </div>
 
   <div class="field">
     <%= form.label :hp %>
-    <%= form.number_field :hp %>
+    <%= form.number_field :hp, placeholder: "Between 80 to 120" %>
   </div>
 
   <div class="field">
     <%= form.label :attack_points %>
-    <%= form.number_field :attack_points %>
+    <%= form.number_field :attack_points, placeholder: "Between 5 and 15" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :agility %>
+    <div class="ui right labeled input">
+      <%= form.number_field :agility, placeholder: "More agility = more chance of dodging hits !" %>
+      <div class="ui basic label">
+        %
+      </div>
+    </div>
   </div>
 
   <div class="field">
     <%= form.label :selfie_url %>
-    <%= form.text_field :selfie_url %>
+    <%= form.text_field :selfie_url, placeholder: "http://www.website.com/image.jpg" %>
     <div class="ui pointing label">
       Ps : Find cool images url on <%= link_to 'this website', 'https://icon-icons.com/' %>
     </div>

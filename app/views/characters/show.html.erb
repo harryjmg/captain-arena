@@ -13,6 +13,11 @@
   <%= @character.attack_points %>
 </p>
 
+<p>
+  <strong>Agility :</strong>
+  <%= @character.agility%>
+</p>
+
 <div class='ui buttons'>
 <%= link_to 'Edit', edit_character_path(@character), class: 'ui button' %>
 <%= link_to 'Back', arena_path, class: 'ui button' %>

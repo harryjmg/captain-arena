@@ -11,6 +11,7 @@ This app is an arena where two characters can fight. Simple as that !
 `bundle install` <br />
 3. Create the database and install seeds data with : <br />
 `rake db:create` <br />
+`rake db:migrate` <br />
 `rake db:seed`
 4. Launch the server and enjoy ! <br />
 `rails s`

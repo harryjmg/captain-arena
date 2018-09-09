@@ -1,6 +1,8 @@
-<h1>New Character</h1>
-
-<%= render 'form', character: @character %>
-
-<div class="ui divider"></div>
-<%= link_to 'Back', arena_path, class: 'ui button' %>
+<div class="ui grid">
+  <div class="six wide column">
+    <h1>New Character</h1>
+    <%= render 'form', character: @character %>
+    <div class="ui divider"></div>
+    <%= link_to 'Back', arena_path, class: 'ui button' %>
+  </div>
+</div>

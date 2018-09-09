@@ -1,9 +1,11 @@
-<h1>Editing Character</h1>
-
-<%= render 'form', character: @character %>
-
-<div class="ui divider"></div>
-<div class="ui buttons">
-  <%= link_to 'Show', @character, class: 'ui button' %>
-  <%= link_to 'Back', arena_path, class: 'ui button' %>
+<div class="ui grid">
+  <div class="six wide column">
+    <h1>Editing Character</h1>
+    <%= render 'form', character: @character %>
+    <div class="ui divider"></div>
+    <div class="ui buttons">
+      <%= link_to 'Show', @character, class: 'ui button' %>
+      <%= link_to 'Back', arena_path, class: 'ui button' %>
+    </div>
+  </div>
 </div>
