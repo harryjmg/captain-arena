@@ -1,5 +1,7 @@
-<div class="ui secondary menu">
-  <%= link_to 'CAPTAIN ARENA', root_path, class: "header item" %>
-  <%= link_to 'Fighters', characters_path, class: (current_page?(characters_path) ? 'active item' : 'item') %>
-  <%= link_to 'Fights history', fights_path, class: (current_page?(fights_path) ? 'active item' : 'item') %>
+<div class="ui secondary pointing menu">
+  <%= link_to 'CAPTAIN ARENA', root_path, class: (current_page?(root_path) ? 'active header item' : 'header item') %>
+  <%= link_to 'Arena', arena_path, class: (current_page?(arena_path) ? 'active item' : 'item') %>
+  <div class="right menu">
+    <%= link_to 'About', 'https://github.com/captaincontrat/jobs', class: 'item' %>
+  </div>
 </div>

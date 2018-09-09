@@ -3,23 +3,24 @@
 <table class="ui very basic table">
   <thead>
     <tr>
-      <th>First fighter</th>
-      <th>Second fighter</th>
-      <th>Winner</th>
-      <th>Loser</th>
-      <th colspan="2"></th>
+      <th class="two wide">Fight</th>
+      <th class="two wide right aligned">Winner</th>
+      <th class="one wide"></th>
+      <th class="two wide">Date created</th>
+      <th class="one wide"></th>
+      <th class="one wide"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @fights.each do |fight| %>
       <tr>
-        <td><%= fight.first_fighter.name %></td>
-        <td><%= fight.second_fighter.name %></td>
-        <td><%= fight.winner.name %></td>
-        <td><%= fight.loser.name %></td>
-        <td><%= link_to 'Show', fight %></td>
-        <td><%= link_to 'Destroy', fight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><b><%= fight.first_fighter.name %></b> / <b><%= fight.second_fighter.name %></b></td>
+        <td class="right aligned"><%= fight.winner.name %></td>
+        <td><%= image_tag(fight.winner.selfie_url, size: "30x30") %></td>
+        <td><%= time_ago_in_words(fight.created_at) %></td>
+        <td><%= link_to 'Fight review', fight %></td>
+        <td><%= link_to 'Delete', fight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

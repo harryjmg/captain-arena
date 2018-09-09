@@ -1,0 +1,36 @@
+<div class="ui segment">
+  <h1>Fights history</h1>
+
+  <table class="ui very basic table">
+    <thead>
+      <tr>
+        <th>Challengers</th>
+        <th class="one wide"></th>
+        <th>Winner</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @fights.each do |fight| %>
+        <tr>
+          <td><b><%= fight.first_fighter.name %></b> & <b><%= fight.second_fighter.name %></b></td>
+          <td><%= image_tag(fight.winner.selfie_url, size: "30x30") %></td>
+          <td><%= fight.winner.name %></td>
+          <td><%= time_ago_in_words(fight.created_at) %></td>
+          <td><%= link_to 'Review', fight %></td>
+          <td><%= link_to 'Delete', fight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      <tfoot class="full-width">
+        <tr>
+          <th colspan="16">
+            <%= link_to '<i class="handshake icon"></i> Create fight'.html_safe, new_fight_path, class: "ui right floated small primary labeled icon button" %>
+          </th>
+        </tr>
+      </tfoot>
+    </tbody>
+  </table>
+</div>

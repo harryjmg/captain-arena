@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/arena', to: 'arena#index'
   resources :fights
   resources :characters
   root to: "pages#welcome"

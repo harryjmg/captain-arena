@@ -3,7 +3,7 @@
 <table class="ui very basic table">
   <thead>
     <tr>
-      <th>Selfie</th>
+      <th class="one wide">Selfie</th>
       <th>Name</th>
       <th>Hp</th>
       <th>Attack points</th>
@@ -16,7 +16,7 @@
 
       <tr>
         <td><%= image_tag(character.selfie_url, size: "30x30") %></td>
-        <td><%= character.name %></td>
+        <td><b><%= character.name %></b></td>
         <td><%= character.hp %></td>
         <td><%= character.attack_points %></td>
         <td><%= link_to 'Show', character %></td>
